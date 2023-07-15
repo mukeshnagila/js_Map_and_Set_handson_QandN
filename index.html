@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map & Sets questions..</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Map And Set's Questions & Answers</h1>
+    <br>
+    <div class="QandN Q1">
+        <h2>Q.1 - Problem:<br>
+            You are given a string (STR) of length N, 
+            consisting of only the lower case English alphabet.
+            Your task is to remove all the duplicate occurrences of characters in the string.
+            <pre>
+                Input:abcadeecfb
+                Output:abcdef
+            </pre>
+        </h2>
+        <h3>
+            Ans - <pre>
+                function removeDuplicates(str) {
+                    const charObj = {};
+                    let result = '';
+                    for (let char of str) {
+                      if (!charObj[char]) {
+                        charObj[char] = true;
+                        result += char;
+                      }
+                    }
+                    return result;
+                  }
+                  const input = 'abcadeecfb';
+                  const output = removeDuplicates(input);
+                  console.log(output);
+                  </pre> 
+        </h3>
+    </div>
+
+    <div class="QandN Q1">
+        <h2>Q.2 - Problem:<br>
+                You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+            <pre>
+                    Input: abcadeecfb
+
+                    Output:
+                            a=2
+                            b=2
+                            c=2
+                            d=1
+                            e=2
+                            f=1"
+            </pre>
+        </h2>
+        <h3>
+            Ans - <pre>
+                let a = 'abcadeecfb';
+                function countAlpha(str) {
+                  let alphabetMap = new Map();
+                  for (let char of str) {                    <!--// If the character is already in the map, increment its count-->
+                    if (alphabetMap.has(char)) {
+                      alphabetMap.set(char, alphabetMap.get(char) + 1);
+                    }                    <!--// If the character is not in the map, add it with count 1-->
+                    else {
+                      alphabetMap.set(char, 1);
+                    }
+                  }                  <!--console.log(alphabetMap);-->
+                  for (let [key, value] of alphabetMap) {
+                    console.log(key + '=' + value);
+                  }
+                }
+                countAlpha(a);
+                </pre> 
+        </h3>
+    </div>
+
+</body>
+</html>
